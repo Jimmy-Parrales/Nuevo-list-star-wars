@@ -1,16 +1,16 @@
 import React,{useContext} from "react";
 import { Context } from "../store/appContext";
-
 import "../../styles/home.css";
 
-export const Home = () => {
-	
+export const Personaje = () => {
 	const { store, actions } = useContext(Context);
 	let datos=store.people;
-	console.log(datos);
-	//console.log(planets.map((datos,index)=>console.log(datos.name)));
 	return(
-	<div className="text-center mt-5">
-		<h1>App Starwars</h1>
+	<div className="card">
+		{datos.map((datos,index)=>(
+			<div className="card-body">
+			<h5 key={index}>Personaje Star Wars:{datos.name}</h5>	
+			</div>
+		))}
 	</div>
 )};
